@@ -12,6 +12,9 @@ import java.util.*;
 public class DeserializerService {
 
     public <T> T deserialize(String json, Class<T> clazz) {
+        if (json == null || json.isEmpty()) {
+            throw new IllegalArgumentException("json is null or empty");
+        }
         Map<String, String> jsonMap = JsonParser.parseJsonObject(json);
 
         try {

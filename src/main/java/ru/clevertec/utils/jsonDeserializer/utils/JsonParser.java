@@ -74,21 +74,17 @@ public class JsonParser {
         return inQuotes;
     }
 
-    private static String cleanJsonString(String jsonString) {
-        return Optional.ofNullable(jsonString)
-                .map(str -> str.replaceAll("\n", "").trim())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid JSON string"));
-    }
-
     private static String getObjectJsonString(String jsonString) {
-        return Optional.of(cleanJsonString(jsonString))
+        return Optional.of(jsonString)
+                .map(str -> str.replaceAll("\n", "").trim())
                 .filter(str -> str.startsWith("{") && str.endsWith("}"))
                 .map(str -> str.substring(1, str.length() - 1).trim())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid JSON object"));
     }
 
     private static String getArrayJsonString(String jsonString) {
-        return Optional.of(cleanJsonString(jsonString))
+        return Optional.of(jsonString)
+                .map(str -> str.replaceAll("\n", "").trim())
                 .filter(str -> str.startsWith("[") && str.endsWith("]"))
                 .map(str -> str.substring(1, str.length() - 1).trim())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid JSON array"));
