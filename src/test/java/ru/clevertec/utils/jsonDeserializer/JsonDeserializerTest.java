@@ -78,17 +78,13 @@ public class JsonDeserializerTest {
     public void testDeserializeEmptyString() {
         String jsonString = "";
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            JsonDeserializer.deserialize(jsonString, Person.class);
-        });
+        assertThrows(IllegalArgumentException.class, () -> JsonDeserializer.deserialize(jsonString, Person.class));
     }
 
     @Test
     @DisplayName("Test deserializing a null JSON string")
     public void testDeserializeNull() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            JsonDeserializer.deserialize(null, Person.class);
-        });
+        assertThrows(IllegalArgumentException.class, () -> JsonDeserializer.deserialize(null, Person.class));
     }
 
     @Test
@@ -101,9 +97,7 @@ public class JsonDeserializerTest {
                 "isStudent": "yes"
                 }
                 """;
-        assertThrows(RuntimeException.class, () -> {
-            JsonDeserializer.deserialize(invalidJsonString, Person.class);
-        });
+        assertThrows(RuntimeException.class, () -> JsonDeserializer.deserialize(invalidJsonString, Person.class));
     }
 
     @Test
@@ -117,9 +111,7 @@ public class JsonDeserializerTest {
                 "courses": "Math, Science"
                 }
                 """;
-        assertThrows(RuntimeException.class, () -> {
-            JsonDeserializer.deserialize(invalidArrayJsonString, Person.class);
-        });
+        assertThrows(RuntimeException.class, () -> JsonDeserializer.deserialize(invalidArrayJsonString, Person.class));
     }
 
     @Test
@@ -133,9 +125,7 @@ public class JsonDeserializerTest {
                 "address": "New York"
                 }
                 """;
-        assertThrows(RuntimeException.class, () -> {
-            JsonDeserializer.deserialize(invalidObjectJsonString, Person.class);
-        });
+        assertThrows(RuntimeException.class, () -> JsonDeserializer.deserialize(invalidObjectJsonString, Person.class));
     }
 
     @Test
@@ -149,8 +139,6 @@ public class JsonDeserializerTest {
                 }
                 """;
 
-        assertThrows(RuntimeException.class, () -> {
-            JsonDeserializer.deserialize(invalidJsonString, Person.class);
-        });
+        assertThrows(RuntimeException.class, () -> JsonDeserializer.deserialize(invalidJsonString, Person.class));
     }
 }

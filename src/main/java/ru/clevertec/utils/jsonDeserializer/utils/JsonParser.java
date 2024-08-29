@@ -4,6 +4,8 @@ import java.util.*;
 
 public class JsonParser {
 
+    private JsonParser(){}
+
     public static Map<String, String> parseJsonObject(String json) {
         String jsonString = getObjectJsonString(json);
         Map<String, String> result = new HashMap<>();

@@ -80,9 +80,7 @@ public class JsonParserTest {
                 "isStudent": "true"
                 """;
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            JsonParser.parseJsonObject(invalidJsonString);
-        });
+        assertThrows(IllegalArgumentException.class, () -> JsonParser.parseJsonObject(invalidJsonString));
     }
 
     @Test
@@ -135,9 +133,7 @@ public class JsonParserTest {
                 "History"
                 """;
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            JsonParser.parseJsonArray(invalidJsonString);
-        });
+        assertThrows(IllegalArgumentException.class, () -> JsonParser.parseJsonArray(invalidJsonString));
     }
 
     @Test
